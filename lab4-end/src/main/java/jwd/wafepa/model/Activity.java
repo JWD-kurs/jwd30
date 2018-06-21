@@ -1,14 +1,27 @@
 package jwd.wafepa.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Models a physical activity.
  * 
  *
  */
+@Entity
+@Table(name="tbl_activity")
 public class Activity {
 	
+	@Id
+	@GeneratedValue
+	@Column
 	private Long id;
+	@Column(nullable=false)
 	private String name;
+	@Column(name="adm_comment")
 	private String adminComment="test";
 	
 

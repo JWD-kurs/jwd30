@@ -12,7 +12,7 @@ import jwd.wafepa.service.ActivityService;
 
 import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 public class InMemoryActivityService implements ActivityService {
 
 	private Map<Long, Activity> activities = new HashMap<>();
