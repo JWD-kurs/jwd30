@@ -1,0 +1,18 @@
+<div ng-controller="activitiesCtrl">
+	<h1>Activities</h1>
+	<form>
+		<label for="name">Name</label>
+		<input id="name" ng-model="newActivity.name">
+		<button ng-click="add()">Add</button>
+	</form>
+	
+	<table border="1">
+		<tr>
+			<th>Name</th>
+		</tr>
+		<tr ng-repeat="a in activities">
+			<td>{{a.name}}</td>
+			<td><button ng-click="goToEdit(a.id)">Edit</button></td>
+		</tr>
+	</table>
+</div>
