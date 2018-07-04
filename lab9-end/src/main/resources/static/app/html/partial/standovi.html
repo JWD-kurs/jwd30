@@ -1,0 +1,63 @@
+<div ng-controller="standoviCtrl">
+	
+	<div class="page-header">
+		<h1>Štandovi</h1>
+	</div>
+	
+
+	<form>
+		<div class="form-group">
+			<label for="zakupac">Zakupac</label>
+			<input class="form-control" ng-model="noviStand.zakupac" id="zakupac">
+		</div>
+		<div class="form-group">
+		<label for="povrsina">Površina</label>
+		<input class="form-control" ng-model="noviStand.povrsina" id="povrsina">
+		</div>
+		<div class="form-group">
+		<label for="sajam">Sajam</label>
+		<select  ng-change="react()" class="form-control" ng-model="noviStand.sajamId" id="sajam">
+			<option ng-repeat="sa in sajmovi" value="{{sa.id}}">{{sa.naziv}}</option>
+		</select>
+		</div>
+		<button class="btn btn-primary" ng-click="add()">Dodaj</button>
+	</form>
+	
+	<form>
+		<div class="form-group">
+			<label for="pzakupac" >Zakupac</label>
+			<input ng-model="parametri.zakupac" class="form-control" id="pzakupac">
+		</div>
+		<div class="form-group">
+			<label for="minp">Minimalna površina</label>
+			<input ng-model="parametri.minP" class="form-control" id="minp">
+		</div>
+		<div class="form-group">
+			<label for="maxp">Maksimalna površina</label>
+			<input ng-model="parametri.maxP" class="form-control" id="maxp">
+		</div>
+		<button ng-click="search()" class="btn btn-primary">Pretraži</button>
+	</form>
+	
+	<div class="btn-group">
+		<button ng-disabled="pageNum == 0" ng-click="go(-1)" class="btn btn-primary">Prethodna</button>
+		<button ng-disabled="pageNum == totalPages - 1" ng-click="go(1)" class="btn btn-primary">Sledeća</button>
+	</div>
+	
+	<table class="table table-bordered table-condensed table-striped">
+		<thead>
+			<tr>
+				<th>Zakupac</th>
+				<th>Površina</th>
+				<th>Sajam</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="s in standovi">
+				<td>{{s.zakupac}}</td>
+				<td>{{s.povrsina}}</td>
+				<td>{{s.sajamNaziv}}</td>				
+			</tr>
+		</tbody>
+	</table>
+</div>
