@@ -1,0 +1,25 @@
+<div ng-controller="editFestivalCtrl">
+    <form>
+        <div class="form-group">
+            <label for="nazivSF">Naziv</label>
+            <input type="text" class="form-control" name="nazivSF" ng-model="stariFestival.naziv" placeholder="Naziv">
+        </div>
+        <div class="form-group">
+            <label for="organizatorSF">Organizator</label>
+            <input type="text" class="form-control" name="organizatorSF" ng-model="stariFestival.organizator" placeholder="Organizator">
+        </div>
+        <div class="form-group">
+            <label for="datumPocetkaSF">Datum početka</label>
+            <input type="text" class="form-control" name="datumPocetkaSF" ng-model="stariFestival.datumPocetka" placeholder="Datum početka">
+        </div>
+        <div class="form-group">
+            <label for="cenaKarteSF">Cena karte</label>
+            <input type="text" class="form-control" name="cenaKarteSF" ng-model="stariFestival.cenaKarte" placeholder="Cena karte">
+        </div>
+        <div class="form-group">
+                <label for="cenaKarteNF">Količina karata</label>
+                <input type="text" class="form-control" name="kolicinaSF" ng-model="stariFestival.kolicina" placeholder="Količina">
+        </div>
+        <button type="button" class="btn btn-primary" ng-click="izmeni()">Izmeni</button>
+    </form>
+</div>

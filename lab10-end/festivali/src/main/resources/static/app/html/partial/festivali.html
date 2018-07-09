@@ -1,0 +1,90 @@
+<div ng-controller="festivaliCtrl">
+
+        <form>
+            <div class="form-group">
+                <label for="nazivNF">Naziv</label>
+                <input type="text" class="form-control" name="nazivNF" ng-model="noviFestival.naziv" placeholder="Naziv">
+            </div>
+            <div class="form-group">
+                <label for="organizatorNF">Organizator</label>
+                <input type="text" class="form-control" name="organizatorNF" ng-model="noviFestival.organizator" placeholder="Organizator">
+            </div>
+            <div class="form-group">
+                <label for="datumPocetkaNF">Datum početka</label>
+                <input type="text" class="form-control" name="datumPocetkaNF" ng-model="noviFestival.datumPocetka" placeholder="Datum početka">
+            </div>
+            <div class="form-group">
+                <label for="cenaKarteNF">Cena karte</label>
+                <input type="text" class="form-control" name="cenaKarteNF" ng-model="noviFestival.cenaKarte" placeholder="Cena karte">
+            </div>
+            <div class="form-group">
+                <label for="cenaKarteNF">Količina karata</label>
+                <input type="text" class="form-control" name="kolicinaNF" ng-model="noviFestival.kolicina" placeholder="Količina">
+            </div>
+            <div class="form-group">
+                <label for="mestoNF">Mesto</label>
+                <select class="form-control" name="mestoNF" ng-model="noviFestival.mestoId">
+                    <option ng-repeat="mesto in mesta" value="{{mesto.id}}">{{mesto.naziv}}</option>
+
+                </select>
+            </div>
+
+            <button type="button" class="btn btn-primary" ng-click="dodaj()">Dodaj</button>
+        </form>
+
+    <br/>
+    <br/>
+
+        <form>
+            <div class="form-group">
+                <label for="nazivTF">Naziv</label>
+                <input type="text" class="form-control" name="nazivTF" ng-model="trazeniFestival.naziv" placeholder="Naziv">
+            </div>
+             <div class="form-group">
+                <label for="mckTF">Maksimalna cena karte</label>
+                <input type="text" class="form-control" name="mckTF" ng-model="trazeniFestival.maxCena" placeholder="Maksimalna cena karte">
+            </div>
+            <div class="form-group">
+                <label for="mestoNF">Mesto</label>
+                <select class="form-control" name="mestoNF" ng-model="trazeniFestival.idMesta">
+                    <option ng-repeat="mesto in mesta" value="{{mesto.id}}">{{mesto.naziv}}</option>
+
+                </select>
+            </div>
+           
+
+            <button type="button" class="btn btn-primary" ng-click="trazi()">Filtriraj</button>
+        </form>
+
+
+    <br/>
+    <br/>
+    <br/>
+    <div class="btn-group pull-right">
+        <button class="btn btn-primary" ng-click="nazad()" ng-disabled="pageNum==0">Prethodna</button>
+        <button class="btn btn-primary" ng-click="napred()" ng-disabled="pageNum == totalPages - 1">Sledeća</button>
+    </div>
+    <table class="table table-striped">
+        <tr>
+            <th>Naziv</th>
+            <th>Organizator</th>
+            <th>Mesto</th>
+            <th>Cena karte</th>
+            <th>Količina karata</th>
+            <th>Datum početka</th>
+        </tr>
+        <tr ng-repeat="festival in festivali">
+            <td>{{festival.naziv}}</td>
+            <td>{{festival.organizator}}</td>
+            <td>{{festival.mestoNaziv}}</td>
+            <td>{{festival.cenaKarte}}</td>
+            <td>{{festival.kolicina}}</td>
+            <td>{{festival.datumPocetka}}</td>
+            <td>
+                <button class="btn btn-danger" ng-click="obrisi(festival.id)">Obriši</button>
+                <button class="btn btn-warning" ng-click="izmeni(festival.id)">Izmeni</button>
+            	<button class="btn btn-primary" ng-click="kupi(festival.id)">Kupi</button>
+            </td>
+        </tr>
+    </table>
+</div>
